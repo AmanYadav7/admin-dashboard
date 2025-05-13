@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   LightModeOutlined,
   DarkModeOutlined,
@@ -7,26 +6,33 @@ import {
   Search,
   SettingsOutlined,
   ArrowDropDownOutlined,
-  Light,
 } from "@mui/icons-material";
-import FlexBetween from 'components/FlexBetween';
-import { useDispatch } from 'react-redux';
-import { setMode } from 'state';
+import FlexBetween from "components/FlexBetween";
+import { useDispatch } from "react-redux";
+import { setMode } from "state";
 import profileImage from "assets/profile.jpeg";
-import { AppBar, Button, Box, Typography, IconButton, InputBase, Toolbar, useTheme, Menu, MenuItem } from '@mui/material';
+import {
+  AppBar,
+  Button,
+  Box,
+  Typography,
+  IconButton,
+  InputBase,
+  Toolbar,
+  Menu,
+  MenuItem,
+  useTheme,
+} from "@mui/material";
 
-const Navbar = ({
-    user,
-    isSidebarOpen,
-    setIsSidebarOpen
-}) => {
-    const dispatch = useDispatch();
-    const theme = useTheme();
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
+  const dispatch = useDispatch();
+  const theme = useTheme();
 
-    const [anchorEl, setAnchorEl] = useState(null);
-    const isOpen = Boolean(anchorEl);
-    const handleClick = (event) => setAnchorEl(event.currentTarget);
-    const handleClose = () => setAnchorEl(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isOpen = Boolean(anchorEl);
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
+
   return (
     <AppBar
       sx={{
@@ -56,7 +62,7 @@ const Navbar = ({
 
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
-          <IconButton onClick={() => dispatch(setMode)}>
+          <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkModeOutlined sx={{ fontSize: "25px" }} />
             ) : (
@@ -87,7 +93,6 @@ const Navbar = ({
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
-
               <Box textAlign="left">
                 <Typography
                   fontWeight="bold"
@@ -113,13 +118,13 @@ const Navbar = ({
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-                <MenuItem onClick={handleClose}>Log Out</MenuItem>
+              <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
           </FlexBetween>
         </FlexBetween>
       </Toolbar>
     </AppBar>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Box, useTheme } from "@mui/material";
 import Header from "components/Header";
 import { ResponsiveLine } from "@nivo/line";
@@ -24,14 +24,14 @@ const Monthly = () => {
     };
 
     Object.values(monthlyData).forEach(({ month, totalSales, totalUnits }) => {
-        totalSalesLine.data = [
-          ...totalSalesLine.data,
-          { x: month, y: totalSales },
-        ];
-        totalUnitsLine.data = [
-          ...totalUnitsLine.data,
-          { x: month, y: totalUnits },
-        ];
+      totalSalesLine.data = [
+        ...totalSalesLine.data,
+        { x: month, y: totalSales },
+      ];
+      totalUnitsLine.data = [
+        ...totalUnitsLine.data,
+        { x: month, y: totalUnits },
+      ];
     });
 
     const formattedData = [totalSalesLine, totalUnitsLine];
@@ -40,9 +40,8 @@ const Monthly = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="MONTHLY SALES" subtitle="Chart of monthly sales" />
+      <Header title="MONTHLY SALES" subtitle="Chart of monthlysales" />
       <Box height="75vh">
-
         {data ? (
           <ResponsiveLine
             data={formattedData}

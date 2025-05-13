@@ -8,7 +8,6 @@ import {
   PersonAdd,
   Traffic,
 } from "@mui/icons-material";
-
 import {
   Box,
   Button,
@@ -45,7 +44,7 @@ const Dashboard = () => {
     },
     {
       field: "products",
-      headerName: "# of products",
+      headerName: "# of Products",
       flex: 0.5,
       sortable: false,
       renderCell: (params) => params.value.length,
@@ -62,6 +61,7 @@ const Dashboard = () => {
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+
         <Box>
           <Button
             sx={{
@@ -100,7 +100,6 @@ const Dashboard = () => {
             />
           }
         />
-
         <StatBox
           title="Sales Today"
           value={data && data.todayStats.totalSales}
@@ -112,7 +111,6 @@ const Dashboard = () => {
             />
           }
         />
-
         <Box
           gridColumn="span 8"
           gridRow="span 2"
@@ -122,7 +120,6 @@ const Dashboard = () => {
         >
           <OverviewChart view="sales" isDashboard={true} />
         </Box>
-
         <StatBox
           title="Monthly Sales"
           value={data && data.thisMonthStats.totalSales}
@@ -134,7 +131,6 @@ const Dashboard = () => {
             />
           }
         />
-
         <StatBox
           title="Yearly Sales"
           value={data && data.yearlySalesTotal}
@@ -147,12 +143,18 @@ const Dashboard = () => {
           }
         />
 
+        {/* ROW 2 */}
         <Box
           gridColumn="span 8"
           gridRow="span 3"
           sx={{
-            "& .MuiDataGrid-root": { border: "none", borderRadius: "5rem" },
-            "& .MuiDataGrid-cell": { borderBottom: "none" },
+            "& .MuiDataGrid-root": {
+              border: "none",
+              borderRadius: "5rem",
+            },
+            "& .MuiDataGrid-cell": {
+              borderBottom: "none",
+            },
             "& .MuiDataGrid-columnHeaders": {
               backgroundColor: theme.palette.background.alt,
               color: theme.palette.secondary[100],
